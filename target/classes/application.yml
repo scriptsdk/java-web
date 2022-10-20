@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  main:
+    banner-mode: off
+  data:
+    rest:
+      base-path: "/api"
+springdoc:
+  swagger-ui:
+    path: "/openapi"
+scriptsdk:
+  url: "localhost"
+  port: 47602
