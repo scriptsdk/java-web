@@ -1,0 +1,15 @@
+package de.scriptsdk.web.dto.stealth;
+
+import de.scriptsdk.api.enums.VarRegion;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+public class VarRegionDto {
+    private VarRegion region;
+    private String keyName;
+    private String keyValue;
+}
