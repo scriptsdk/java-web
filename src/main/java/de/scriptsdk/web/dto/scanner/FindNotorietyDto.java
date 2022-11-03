@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class FindNotorietyDto {
-    private Integer type;
-    private Notoriety notoriety;
+    private Integer type = 0;
+    private Notoriety notoriety = Notoriety.ENEMY;
 }

@@ -202,4 +202,8 @@ public class StealthService {
     public void waitForClient(ApiClient client, Integer delay) {
         client.waitForClient(delay);
     }
+
+    public Boolean isCompatible(ApiClient client) {
+        return client.isCompatible();
+    }
 }

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class ProfileDto {
-    private String profileName;
-    private String shardName;
-    private String charName;
+    private String profileName = "";
+    private String shardName = "";
+    private String charName = "";
 }

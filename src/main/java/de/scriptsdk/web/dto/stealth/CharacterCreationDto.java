@@ -16,28 +16,28 @@ public class CharacterCreationDto {
     private String profileName = "";
     private String shardName = "";
     private String charName = "";
-    private Gender gender;
-    private Race race;
-    private Integer strength;
-    private Integer dexterity;
-    private Integer intelligence;
-    private SkillType skillType1;
-    private SkillType skillType2;
-    private SkillType skillType3;
-    private SkillType skillType4;
-    private Double skillValue1;
-    private Double skillValue2;
-    private Double skillValue3;
-    private Double skillValue4;
-    private City city;
-    private Integer slotIndex;
+    private Gender gender = Gender.MALE;
+    private Race race = Race.HUMAN;
+    private Integer strength = 0;
+    private Integer dexterity = 0;
+    private Integer intelligence = 0;
+    private SkillType skillType1 = SkillType.ANATOMY;
+    private SkillType skillType2 = SkillType.ANATOMY;
+    private SkillType skillType3 = SkillType.ANATOMY;
+    private SkillType skillType4 = SkillType.ANATOMY;
+    private Double skillValue1 = 0.00;
+    private Double skillValue2 = 0.00;
+    private Double skillValue3 = 0.00;
+    private Double skillValue4 = 0.00;
+    private City city = City.NEW_HAVEN;
+    private Integer slotIndex = 0;
 
     public CharacterCreationRequest toRequest() {
         CharacterCreationRequest request = new CharacterCreationRequest();
 
-        request.setProfileNam(this.getProfileName());
-        request.setProfileNam(this.getShardName());
-        request.setProfileNam(this.getCharName());
+        request.setProfileName(this.getProfileName());
+        request.setShardName(this.getShardName());
+        request.setCharName(this.getCharName());
         request.setGender(this.getGender());
         request.setRace(this.getRace());
         request.setStrength(this.getStrength());

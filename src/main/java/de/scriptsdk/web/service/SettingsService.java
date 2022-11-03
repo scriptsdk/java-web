@@ -145,7 +145,7 @@ public class SettingsService {
     }
 
     public void setUnEquipItemsMacro(ApiClient client) {
-        client.setUnequipItemsMacro();
+        client.setUnEquipItemsMacro();
     }
 
     public void setEquipItemsMacro(ApiClient client) {
@@ -202,5 +202,37 @@ public class SettingsService {
 
     public void setPickupItem(ApiClient client, Long itemIdentity) {
         client.setPickupItem(itemIdentity);
+    }
+
+    public void setWalkUnmountTimer(ApiClient client, Integer value) {
+        client.setWalkUnmountTimer(value);
+    }
+
+    public void setWalkMountTimer(ApiClient client, Integer value) {
+        client.setWalkMountTimer(value);
+    }
+
+    public void setRunMountTimer(ApiClient client, Integer value) {
+        client.setRunMountTimer(value);
+    }
+
+    public void setUnmountTimer(ApiClient client, Integer value) {
+        client.setUnmountTimer(value);
+    }
+
+    public Integer getRunMountTimer(ApiClient client) {
+        return client.getRunMountTimer();
+    }
+
+    public Integer getWalkMountTimer(ApiClient client) {
+        return client.getWalkMountTimer();
+    }
+
+    public Integer getRunUnmountTimer(ApiClient client) {
+        return client.getRunUnmountTimer();
+    }
+
+    public Integer getWalkUnmountTimer(ApiClient client) {
+        return client.getWalkUnmountTimer();
     }
 }

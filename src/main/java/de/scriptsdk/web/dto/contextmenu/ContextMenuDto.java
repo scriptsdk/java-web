@@ -23,9 +23,10 @@ public class ContextMenuDto {
         this.newCliloc = this.getNewCliloc();
 
         entries = new ArrayList<>();
-        for (ContextMenuEntryResponse entry : response.getEntries()) {
-            entries.add(new ContextMenuEntryDto(entry));
+        if (response.getEntries() != null) {
+            for (ContextMenuEntryResponse entry : response.getEntries()) {
+                entries.add(new ContextMenuEntryDto(entry));
+            }
         }
-
     }
 }

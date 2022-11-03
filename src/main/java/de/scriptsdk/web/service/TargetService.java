@@ -1,7 +1,7 @@
 package de.scriptsdk.web.service;
 
 import de.scriptsdk.api.model.network.ApiClient;
-import de.scriptsdk.web.dto.Assets.TileModelDto;
+import de.scriptsdk.web.dto.assets.TileModelDto;
 import de.scriptsdk.web.dto.geometry.Point3DDto;
 import org.springframework.stereotype.Service;
 

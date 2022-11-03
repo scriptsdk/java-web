@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ContextMenuHookDto {
-    private Long objectId;
-    private Integer entryNumber;
+    private Long objectId = 0L;
+    private Integer entryNumber = 0;
 }

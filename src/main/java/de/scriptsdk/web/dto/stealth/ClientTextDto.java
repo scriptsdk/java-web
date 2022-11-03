@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class ClientTextDto {
-    private Long sender;
-    private Integer color;
-    private Integer font;
-    private String text;
+    private Long sender = 0L;
+    private Integer color = 0;
+    private Integer font = 0;
+    private String text = "";
 }

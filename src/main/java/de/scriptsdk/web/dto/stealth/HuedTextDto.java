@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class HuedTextDto {
-    private String text;
-    private Integer color;
+    private String text = "";
+    private Integer color = 0;
 }

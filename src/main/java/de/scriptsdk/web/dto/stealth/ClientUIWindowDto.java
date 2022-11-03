@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class ClientUIWindowDto {
-    private UIWindowType uiWindowType;
-    private Long id;
+    private UIWindowType uiWindowType = UIWindowType.PAPERDOLL;
+    private Long id = 0L;
 }

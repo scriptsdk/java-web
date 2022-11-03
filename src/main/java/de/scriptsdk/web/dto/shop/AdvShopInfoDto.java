@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class AdvShopInfoDto {
-    private Integer type;
-    private Integer color;
-    private Integer amount;
-    private Long price;
-    private String name;
+    private Integer type = 0;
+    private Integer color = 0;
+    private Integer amount = 0;
+    private Long price = 0L;
+    private String name = "";
 }

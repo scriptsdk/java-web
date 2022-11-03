@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class FindTypeDto {
-    private Integer type;
-    private Integer color;
-    private Long container;
-    private Boolean scanRecursive;
+    private Integer type = 0;
+    private Integer color = 0;
+    private Long container = 0L;
+    private Boolean scanRecursive = false;
 }

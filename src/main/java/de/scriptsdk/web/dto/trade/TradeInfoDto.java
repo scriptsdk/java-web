@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class TradeInfoDto {
-    private Integer tradeIndex;
-    private Integer number;
+    private Integer tradeIndex = 0;
+    private Integer number = 0;
 }

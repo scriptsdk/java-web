@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class ShopInfoDto {
-    private Integer type;
-    private Integer color;
-    private Integer amount;
+    private Integer type = 0;
+    private Integer color = 0;
+    private Integer amount = 0;
 }

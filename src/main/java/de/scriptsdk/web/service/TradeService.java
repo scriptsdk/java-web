@@ -27,7 +27,11 @@ public class TradeService {
     }
 
     public Boolean tradeCheck(ApiClient client, TradeInfoDto tradeInfo) {
-        return client.tradeCheck(tradeInfo.getTradeIndex(), tradeInfo.getNumber());
+        if (client.getTradeCount() > 0) {
+
+            return client.tradeCheck(tradeInfo.getTradeIndex(), tradeInfo.getNumber());
+        }
+        return false;
     }
 
     public Boolean checkTradeState(ApiClient client) {
@@ -35,6 +39,10 @@ public class TradeService {
     }
 
     public Long getTradeContainer(ApiClient client, TradeInfoDto tradeInfo) {
-        return client.getTradeContainer(tradeInfo.getTradeIndex(), tradeInfo.getNumber());
+        if (client.getTradeCount() > 0) {
+
+            return client.getTradeContainer(tradeInfo.getTradeIndex(), tradeInfo.getNumber());
+        }
+        return 0L;
     }
 }

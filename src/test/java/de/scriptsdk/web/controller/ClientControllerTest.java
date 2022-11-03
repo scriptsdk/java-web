@@ -4,51 +4,62 @@ import de.scriptsdk.web.AbstractTest;
 import de.scriptsdk.web.dto.client.ClientInfoDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 class ClientControllerTest extends AbstractTest {
-
-    final String uri = "/client";
-    final String uriWithId = String.format("%s/{id}", uri);
+    protected ClientControllerTest(WebApplicationContext context) {
+        super(context);
+    }
 
     @Test
-    void TestFullController() throws Exception {
-        MvcResult mvcResult = getMvc().perform(MockMvcRequestBuilders.post(uri)
-                .accept(MediaType.APPLICATION_JSON_VALUE)).andReturn();
-        int status = mvcResult.getResponse().getStatus();
-        Assertions.assertEquals(200, status);
-        String content = mvcResult.getResponse().getContentAsString();
-        ClientInfoDto client = super.mapFromJson(content, ClientInfoDto.class);
-        assertNotNull(client.getId());
+    void register() {
+        ClientInfoDto info = getClient().post(ClientInfoDto.class);
 
-        mvcResult = getMvc().perform(MockMvcRequestBuilders.get(uriWithId, client.getId())
-                .accept(MediaType.APPLICATION_JSON_VALUE)).andReturn();
-        status = mvcResult.getResponse().getStatus();
-        Assertions.assertEquals(200, status);
-        content = mvcResult.getResponse().getContentAsString();
-        ClientInfoDto clientInfo = super.mapFromJson(content, ClientInfoDto.class);
-        assertNotNull(client.getId());
-        Assertions.assertEquals(clientInfo.getId(), client.getId());
+        Assertions.assertNotNull(info);
 
-        mvcResult = getMvc().perform(MockMvcRequestBuilders.get(uri)
-                .accept(MediaType.APPLICATION_JSON_VALUE)).andReturn();
-        status = mvcResult.getResponse().getStatus();
-        Assertions.assertEquals(200, status);
-        content = mvcResult.getResponse().getContentAsString();
-        List<ClientInfoDto> list = Arrays.stream(super.mapFromJson(content, ClientInfoDto[].class)).toList();
-        Assertions.assertNotEquals(0, list.size());
-
-        mvcResult = getMvc().perform(MockMvcRequestBuilders.delete(uriWithId, client.getId())
-                .accept(MediaType.APPLICATION_JSON_VALUE)).andReturn();
-        status = mvcResult.getResponse().getStatus();
-        assertEquals(200, status);
+        getClient().delete("{id}", info.getId());
     }
+
+    @Test
+    void getGetClientInfo() {
+        ClientInfoDto info = getClient().post(ClientInfoDto.class);
+
+        ClientInfoDto client2 = getClient().get("{id}", info.getId(), ClientInfoDto.class);
+
+        Assertions.assertEquals(client2.getId(), info.getId());
+
+        getClient().delete("{id}", info.getId());
+    }
+
+    @Test
+    void getClientInfoList() {
+        List<ClientInfoDto> list = Arrays.stream(getClient().get("client-list", ClientInfoDto[].class)).toList();
+        Assertions.assertEquals(0, list.size());
+    }
+
+    @Test
+    void isStealthRunning() {
+        Boolean isRunning = getClient().get("stealth-is-running", Boolean.class);
+
+        Assertions.assertEquals(true, isRunning);
+    }
+
+    @Test
+    void unregister() {
+        ClientInfoDto info = getClient().post(ClientInfoDto.class);
+        Assertions.assertNotNull(info);
+
+        MvcResult result = getClient().delete("{id}", info.getId());
+        Assertions.assertEquals(200, result.getResponse().getStatus());
+    }
+
+    @Override
+    protected String getBaseUrl() {
+        return "/v1/client";
+    }
+
 }

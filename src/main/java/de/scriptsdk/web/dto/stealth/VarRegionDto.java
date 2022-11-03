@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class VarRegionDto {
-    private VarRegion region;
-    private String keyName;
-    private String keyValue;
+    private VarRegion region = VarRegion.STEALTH;
+    private String keyName = "stealth";
+    private String keyValue = "";
 }

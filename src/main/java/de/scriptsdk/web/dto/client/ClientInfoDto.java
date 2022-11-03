@@ -2,18 +2,20 @@ package de.scriptsdk.web.dto.client;
 
 import de.scriptsdk.api.model.network.ApiClient;
 import de.scriptsdk.core.enums.network.ScriptState;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class ClientInfoDto {
-    private ScriptState state;
-    private Integer port;
-    private String url;
-    private UUID id;
-
-    public ClientInfoDto() {
-
-    }
+    private ScriptState state = ScriptState.UNKNOWN;
+    private Integer port = 0;
+    private String url = "";
+    private UUID id = null;
 
     public ClientInfoDto(ApiClient client) {
         this();
@@ -22,37 +24,5 @@ public class ClientInfoDto {
         this.setUrl(client.getApiClientUrl());
         this.setPort(client.getApiClientPort());
         this.setState(client.getApiClientScriptState());
-    }
-
-    public ScriptState getState() {
-        return state;
-    }
-
-    public void setState(ScriptState state) {
-        this.state = state;
-    }
-
-    public Integer getPort() {
-        return port;
-    }
-
-    public void setPort(Integer port) {
-        this.port = port;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 }

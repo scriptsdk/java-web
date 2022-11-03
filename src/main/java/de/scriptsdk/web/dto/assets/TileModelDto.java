@@ -1,4 +1,4 @@
-package de.scriptsdk.web.dto.Assets;
+package de.scriptsdk.web.dto.assets;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class TileModelDto {
-    Integer tile;
-    private Integer x;
-    private Integer y;
-    private Integer z;
+    private Integer tile = 0;
+    private Integer x = 0;
+    private Integer y = 0;
+    private Integer z = 0;
 }

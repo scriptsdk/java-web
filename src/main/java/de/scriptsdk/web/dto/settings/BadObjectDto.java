@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class BadObjectDto {
-    private Integer type;
-    private Integer color;
-    private Integer radius;
+    private Integer type = 0;
+    private Integer color = 0;
+    private Integer radius = 0;
 }

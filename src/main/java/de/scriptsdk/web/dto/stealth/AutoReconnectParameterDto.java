@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class AutoReconnectParameterDto {
-    private String shardName;
-    private String charName;
-    private Boolean useItAtEveryReconnect;
+    private String shardName = "";
+    private String charName = "";
+    private Boolean useItAtEveryReconnect = false;
 }

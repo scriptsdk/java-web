@@ -1,5 +1,6 @@
 package de.scriptsdk.web.dto.geometry;
 
+import de.scriptsdk.api.model.geometry.Point3DResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +9,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class Point3DDto {
-    private Integer x;
-    private Integer y;
-    private Integer z;
+    private Integer x = 0;
+    private Integer y = 0;
+    private Integer z = 0;
+
+    public Point3DDto(Point3DResponse response) {
+        this.setX(response.getX());
+        this.setY(response.getY());
+        this.setZ(response.getZ());
+    }
 }
